@@ -1,9 +1,12 @@
+# pip install -U flask flask-cors
 from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
 from email_features import extract_features
 from model import PhishingDetector
 from train_data import get_training_data
 
 app = Flask(__name__)
+cors = CORS(app)
 
 # Initialize and train the model at startup
 def initialize_model():
